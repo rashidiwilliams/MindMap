@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Financial Dashboard</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Oswald:wght@200..700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="header">
+      <h1>January 2025 Overview</h1>
+      <h5>Last Update: 01-01-2025</h5>
+    </div>
+    <div class="container">
+      <!-- Journal -->
+      <div class="slider">
+        <div class="slider-buttons">
+          <button data-section="journal">Journal</button>
+          <button data-section="codingLog">Coding Log</button>
+          <button data-section="tradingLog">Trading Log</button>
+          <button data-section="taskList">Task List</button>
+          <button data-section="projects">Projects</button>
+        </div>
+        <div class="slider-contents">
+          <div id="journalSection" class="slider-content active">
+            <h2>Journal</h2>
+            <textarea id="journalInput"></textarea>
+            <button id="addJournalEntry">Add Entry</button>
+            <div id="journalEntries"></div>
+          </div>
+          <div id="codingLogSection" class="slider-content">
+            <h2>Coding Log</h2>
+            <textarea id="codingLogInput"></textarea>
+            <button id="addCodingLogEntry">Add Entry</button>
+            <div id="codingLogEntries"></div>
+          </div>
+          <div id="tradingLogSection" class="slider-content">
+            <h2>Trading Log</h2>
+            <textarea id="tradingLogInput"></textarea>
+            <button id="addTradingLogEntry">Add Entry</button>
+            <div id="tradingLogEntries"></div>
+          </div>
+          <div id="taskListSection" class="slider-content">
+            <h2>Task List</h2>
+            <textarea id="taskListInput"></textarea>
+            <button id="addTaskListEntry">Add Entry</button>
+            <div id="taskListEntries"></div>
+          </div>
+          <div id="projectsSection" class="slider-content">
+            <h2>Projects</h2>
+            <textarea id="projectsInput"></textarea>
+            <button id="addProjectsEntry">Add Entry</button>
+            <div id="projectsEntries"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Widgets -->
+      <div class="widget" id="assets">
+        <h2>Assets</h2>
+        <h2 id="assetsValue">$0</h2>
+        <input type="number" id="assetsInput" placeholder="Enter Value" />
+      </div>
+      <div class="widget" id="liability">
+        <h2>Liabilities</h2>
+        <h2 id="liabilityValue">$0</h2>
+        <input type="number" id="liabilityInput" placeholder="Enter Value" />
+      </div>
+      <div class="widget" id="tradingPortfolio">
+        <h2>Trading Portfolio</h2>
+        <div class="portfolioWidgetContainer">
+          <div class="subWidget">
+            <label><b>Portfolio Worth:</b></label>
+            <h2 id="portfolioWorthValue">$0</h2>
+            <input
+              type="number"
+              id="portfolioWorthInput"
+              placeholder="Enter Value"
+            />
+          </div>
+          <div class="subWidget">
+            <label><b>Variable Change:</b></label>
+            <h2 id="variableChangeValue">$0</h2>
+            <input
+              type="number"
+              id="variableChangeInput"
+              placeholder="Enter Value"
+            />
+          </div>
+          <div class="subWidget">
+            <label><b>Withdrawals:</b></label>
+            <h2 id="withdrawalsValue">$0</h2>
+            <input
+              type="number"
+              id="withdrawalsInput"
+              placeholder="Enter Value"
+            />
+          </div>
+        </div>
+      </div>
+
+      <!-- Google Sheet Button -->
+      <!-- <div class="widget" id="googleSheet">
+        <button id="openSheet">
+          <ion-icon name="cash-outline"></ion-icon>
+        </button>
+      </div> -->
+
+      <!-- Goal Widgets -->
+      <div class="goal" id="goal1">
+        <h2>Goal 1</h2>
+        <label>Financial Progress:</label>
+        <br />
+        <h3 id="goal1Value">$0 / $550000</h3>
+        <progress id="goal1Progress" value="0" max="550000"></progress>
+        <input type="number" id="goal1Input" placeholder="Enter Value" />
+      </div>
+      <div class="goal" id="goal2">
+        <h2>Goal 2</h2>
+        <label>Financial Progress:</label>
+        <br />
+        <h3 id="goal2Value">$0 / $1600000</h3>
+        <progress id="goal2Progress" value="0" max="1600000"></progress>
+        <input type="number" id="goal2Input" placeholder="Enter Value" />
+      </div>
+      <div class="goal" id="goal3">
+        <h2>Goal 3</h2>
+        <label>Financial Progress:</label>
+        <br />
+        <h3 id="goal3Value">$0 / $10000</h3>
+        <progress id="goal3Progress" value="0" max="10000"></progress>
+        <input type="number" id="goal3Input" placeholder="Enter Value" />
+      </div>
+      <div class="importantDates">
+        <table>
+          <tr>
+            <th>Curernt Month</th>
+            <th>Future Dates</th>
+          </tr>
+          <tr>
+            <td>Jan - 01 - Assignment Paper Submission</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>Jan - 07 - Assignment Paper Submission</td>
+            <td>Apr - 10 - Vehicle Service</td>
+          </tr>
+          <tr>
+            <td>Jan - 14 - Assignment Paper Submission</td>
+            <td>Sep - 25 - Road Service License Renewal</td>
+          </tr>
+          <tr>
+            <td>Jan - 21 - Assignment Paper Submission</td>
+            <td>Dec - 19 - Vehicle Fitness Renewal</td>
+          </tr>
+          <tr>
+            <td>Jan - 28 - Assignment Paper Submission</td>
+            <td></td>
+          </tr>
+        </table>
+      </div>
+      <div class="futureImportantDates"><h2>2025</h2></div>
+    </div>
+
+    <script src="script.js"></script>
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+  </body>
+</html>
